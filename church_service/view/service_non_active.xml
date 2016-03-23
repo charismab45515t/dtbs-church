@@ -1,0 +1,38 @@
+<openerp>
+	<data>
+		<!-- ========================================================================================= -->
+		<!-- FORM -->
+		<!-- ========================================================================================= -->
+		<record model="ir.ui.view" id="church_service.view_church_service_non_active_wizard_from">
+			<field name="name">church.service.non.active.wizard.form</field>
+			<field name="model">dtbs.church.service.nonactive.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Service Non Active">
+					<group>
+						<field name="service_ids">
+							<tree editable="bottom">
+								<field name="service_line_id"/>
+								<field name="reason"/>
+								<field name="effective_date"/>
+							</tree>
+						</field>
+					</group>
+					<footer>
+						<button type="object" name="action_nonactive_service" string="Non Active" confirm="Are you sure want to non activated those service?" class="oe_highlight"/> or 
+						<button type="special" special="cancel" string="Cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="church_service.act_church_service_non_active_wizard">
+			<field name="name">Non Active Service</field>
+			<field name="res_model">dtbs.church.service.nonactive.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</openerp>

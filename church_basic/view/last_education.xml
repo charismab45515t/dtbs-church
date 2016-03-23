@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+        <!-- views -->
+        <record model="ir.ui.view" id="church_basic.view_church_basic_last_education_data_tree">
+            <field name="name">church.basic.last.education.tree</field>
+            <field name="model">dtbs.church.last.education</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="lasteducationtree" toolbar="1">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="church_basic.view_church_basic_last_education_data_form">
+            <field name="name">church.basic.last.education.form</field>
+            <field name="model">dtbs.church.last.education</field>
+            <field name="arch" type="xml">
+                <form string="lasteducationform">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions -->
+        <record model="ir.actions.act_window" id="church_basic.act_church_basic_last_education">
+            <field name="name">Last Education</field>
+            <field name="res_model">dtbs.church.last.education</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click this to add last education.
+                </p>
+            </field>
+        </record>
+    </data>
+</openerp>

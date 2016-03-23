@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Contact -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_contact_tree" model="ir.ui.view">
+      <field name="name">church.basic.member.contact.tree</field>
+      <field name="model">dtbs.church.member.contact</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom" string="church.basic.member.contact.tree">
+          <field name="contact_type_id" options="{'no_create_edit': True, 'no_create': True}"/>
+          <field name="number"/>
+          <field name="emergency"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- Address -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_address_tree" model="ir.ui.view">
+      <field name="name">church.basic.member.address.tree</field>
+      <field name="model">dtbs.church.member.address</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom" string="church.basic.member.address.tree">
+          <field name="country_id"/>
+          <field name="state_id"/>
+          <field required="1" name="city"/>
+          <field required="1" name="street"/>
+          <field name="emergency"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- Family -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_family_tree" model="ir.ui.view">
+      <field name="name">church.basic.member.family.tree</field>
+      <field name="model">dtbs.church.member.family</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom" string="church.basic.member.family.tree">
+          <field name="position"/>
+          <field name="name"/>
+          <field name="gender"/>
+          <field name="date_of_birth"/>
+          <field name="education_id" options="{'no_create_edit': True, 'no_create': True}"/>
+          <field name="occupation"/>
+          <field name="dead"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- Education -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_education_tree" model="ir.ui.view">
+      <field name="name">church.basic.member.education.tree</field>
+      <field name="model">dtbs.church.member.education</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom" string="church.basic.member.education.tree">
+          <field name="education_id" options="{'no_create_edit': True, 'no_create': True}"/>
+          <field name="major"/>
+          <field name="institution"/>
+          <field name="location"/>
+          <field name="start_year"/>
+          <field name="end_year"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

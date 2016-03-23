@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Contact Types -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_contact_type_search" model="ir.ui.view">
+      <field name="name">church.basic.contact.type.search</field>
+      <field name="model">dtbs.church.contact.type</field>
+      <field name="arch" type="xml">
+        <search string="church.basic.contact.type.search">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_contact_type_tree" model="ir.ui.view">
+      <field name="name">church.basic.contact.type.tree</field>
+      <field name="model">dtbs.church.contact.type</field>
+      <field name="arch" type="xml">
+        <tree string="church.basic.contact.type.tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_contact_type_form" model="ir.ui.view">
+      <field name="name">church.basic.contact.type.form</field>
+      <field name="model">dtbs.church.contact.type</field>
+      <field name="arch" type="xml">
+        <form string="church.basic.contact.type.form">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACT WINDOW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.act_church_basic_contact_type" model="ir.actions.act_window">
+      <field name="name">Contact Types</field>
+      <field name="res_model">dtbs.church.contact.type</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">current</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click here to create contact type.</p>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

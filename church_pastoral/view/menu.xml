@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- Pastoral -->
+    <menuitem id="church_pastoral" name="Pastoral" sequence="20"/>
+    <!-- Jemaat -->
+    <menuitem id="church_pastoral_church" name="Church" parent="church_pastoral" sequence="10"/>
+    <menuitem action="act_church_pastoral_member" id="church_pastoral_member" name="Church Member" parent="church_pastoral_church" sequence="10"/>
+    <!-- Configuration -->
+    <menuitem id="church_pastoral_config" name="Configurations" parent="church_pastoral" sequence="100000"/>
+
+  </data>
+</openerp>

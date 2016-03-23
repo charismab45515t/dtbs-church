@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- Service -->
+    <menuitem id="church_service" name="Service" sequence="30"/>
+    <!-- Service -->
+    <menuitem id="church_service_service" name="Service" parent="church_service" sequence="10"/>
+    <menuitem action="act_church_service_reg" id="church_service_reg" name="Service Registration" parent="church_service_service" sequence="10"/>
+    <menuitem action="act_church_service_non_active_wizard" id="church_service_non_active" name="Service Non Active" parent="church_service_service" sequence="10"/>
+
+    <!-- Configuration -->
+    <menuitem id="church_service_config" name="Configurations" parent="church_service" sequence="100000"/>
+    <menuitem action="church_basic.act_church_basic_type_service" id="church_service_type_service" name="Type of Service" parent="church_service_config" sequence="10"/>
+
+  </data>
+</openerp>

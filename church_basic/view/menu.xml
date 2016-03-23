@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- General -->
+    <menuitem id="church_basic" name="General" sequence="10"/>
+    <!-- Configuration -->
+    <menuitem id="church_basic_config" name="Configurations" parent="church_basic" sequence="100000"/>
+    <menuitem action="act_church_basic_tag" id="church_basic_config_tag" name="Member Tags" parent="church_basic_config" sequence="10"/>
+    <menuitem action="act_church_basic_religion" id="church_basic_config_religion" name="Religion" parent="church_basic_config" sequence="20"/>
+    <menuitem action="act_church_basic_contact_type" id="church_basic_config_contact_type" name="Contact Types" parent="church_basic_config" sequence="30"/>
+    <menuitem action="act_church_basic_last_education" id="church_basic_config_last_education" name="Last Education" parent="church_basic_config" sequence="40"/>
+    
+  </data>
+</openerp>

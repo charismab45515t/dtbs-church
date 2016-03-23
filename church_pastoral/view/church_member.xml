@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Attachment -->
+    <!-- #################################################################################################### -->
+    <!-- TREE -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_attachment_tree" model="ir.ui.view">
+      <field name="name">church.pastoral.member.attachment.tree</field>
+      <field name="model">dtbs.church.member.attachment</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <tree string="church.pastoral.member.attachment.tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_attachment_form" model="ir.ui.view">
+      <field name="name">church.pastoral.member.attachment.form</field>
+      <field name="model">dtbs.church.member.attachment</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <form string="church.pastoral.member.attachment.form">
+          <field invisible="1" name="name"/>
+          <group>
+            <field name="datas" filename="name"/>
+          </group>
+          <separator string="Description"/>
+          <field name="description"/>
+        </form>
+      </field>
+    </record>
+
+    <!-- #################################################################################################### -->
+    <!-- Members -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_search" model="ir.ui.view">
+      <field name="name">church.pastoral.member.search</field>
+      <field name="model">dtbs.church.member</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <search string="church.pastoral.member.search">
+          <field name="name"/>
+          <field name="registration_no"/>
+          <field name="state"/>
+          <field name="company_id"/>
+          <group string="Group By">
+            <filter name="company_id" context="{'group_by': 'company_id'}" string="Church"/>
+            <filter name="state" context="{'group_by': 'state'}" string="State"/>
+          </group>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- KANBAN VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_kanban" model="ir.ui.view">
+      <field name="name">church.pastoral.member.kanban</field>
+      <field name="model">dtbs.church.member</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <kanban string="church.pastoral.member.kanban">
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_church_basic_vignette">
+                <div class="oe_church_basic_image">
+                  <a type="open">
+                    <img class="oe_church_basic_picture" t-att-src="kanban_image('dtbs.church.member', 'image_medium', record.id.value)"/>
+                  </a>
+                </div>
+                <div class="oe_church_basic_details">
+                  <h4>
+                    <a type="open"><field name="name"/></a>
+                  </h4>
+                  <p>
+                    ID: <b><field name="registration_no"/></b>
+                  </p>
+                  <p>
+                    State: <b><field name="state"/><br /></b>
+                    Church: <b><field name="company_id"/></b>
+                  </p>
+                </div>
+              </div>
+              <script>$('.oe_church_basic_picture').load(function() { if($(this).width() &gt; $(this).height()) { $(this).addClass('oe_church_basic_picture_wide') } });</script>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_tree" model="ir.ui.view">
+      <field name="name">church.pastoral.member.tree</field>
+      <field name="model">dtbs.church.member</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <tree string="church.pastoral.member.tree">
+          <field name="name"/>
+          <field name="registration_no"/>
+          <field name="state"/>
+          <field name="company_id"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.view_church_pastoral_member_form" model="ir.ui.view">
+      <field name="name">church.pastoral.member.form</field>
+      <field name="model">dtbs.church.member</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <form string="church.pastoral.member.form">
+          <header>
+            <button name="to_active" states="draft,nonactive" type="object" class="oe_highlight" string="Active"/>
+            <button name="to_nactive" states="active" type="object" string="Non Active"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+          </header>
+          <sheet>
+            <field widget="image" name="image_medium" class="oe_left oe_avatar"/>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="name"/>
+              <h1>
+                <field name="name"/>
+              </h1>
+              <label class="oe_edit_only" for="tags"/>
+              <field widget="many2many_tags" name="tags"/>
+              <label class="oe_edit_only" for="registration_no"/>
+              <h3>
+                <field name="registration_no"/>
+              </h3>
+            </div>
+            <notebook>
+              <page string="Public Information">
+                <group>
+                  <group>
+                    <field name="company_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                    <field name="join_date"/>
+                  </group>
+                  <group>
+                  </group>
+                </group>
+                <field placeholder="Other Information ..." name="note"/>
+              </page>
+              <page string="Personal Information">
+                <group>
+                  <group>
+                    <separator colspan="2" string="Identity"/>
+                    <field name="identification_id"/>
+                    <separator colspan="2" string="Status"/>
+                    <field name="gender"/>
+                    <field name="marital"/>
+                  </group>
+                  <group>
+                    <separator colspan="2" string="Birth"/>
+                    <field name="birth_place"/>
+                    <field name="date_of_birth"/>
+                    <separator colspan="2" string="Extra Info"/>
+                    <field name="blood_type"/>
+                    <field name="hobby"/>
+                  </group>
+                </group>
+                <separator string="Family"/>
+                <field name="family_ids"/>
+              </page>
+              <page string="Contact">
+                <group>
+                  <field widget="email" name="email"/>
+                </group>
+                <separator string="Contact"/>
+                <field name="contact_ids"/>
+                <separator string="Address"/>
+                <field name="address_ids"/>
+              </page>
+              <page string="Attachment">
+                <field name="attachment_ids"/>
+              </page>
+              <page string="Extra Information">
+                <separator string="Extra Info"/>
+                <group>
+                  <group>
+                    <field name="create_uid" readonly="1"/>
+                    <field name="write_uid" readonly="1"/>
+                    <field name="active_uid" readonly="1" attrs="{'invisible': [('active_uid', '=', False)]}"/>
+                    <field name="nactive_uid" readonly="1" attrs="{'invisible': [('nactive_uid', '=', False)]}"/>
+                  </group>
+                  <group>
+                    <field name="create_date" readonly="1"/>
+                    <field name="write_date" readonly="1"/>
+                    <field name="dt_active" readonly="1" attrs="{'invisible': [('active_uid', '=', False)]}"/>
+                    <field name="dt_nactive" readonly="1" attrs="{'invisible': [('nactive_uid', '=', False)]}"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACT WINDOW -->
+    <!-- #################################################################################################### -->
+    <record id="church_pastoral.act_church_pastoral_member" model="ir.actions.act_window">
+      <field name="name">Members</field>
+      <field name="res_model">dtbs.church.member</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">current</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click here to add member.</p>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data noupdate="1">
+    <!-- #################################################################################################### -->
+    <record id="cron_church_service_auto_update" model="ir.cron">
+      <field name="name">Church Service Line Auto Update</field>
+      <field eval="True" name="active"/>
+      <field name="model">dtbs.church.service.line</field>
+      <field name="function">update_service_line</field>
+      <field name="args">()</field>
+      <field name="interval_type">days</field>
+      <field name="numbercall">-1</field>
+      <field eval="True" name="doall"/>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

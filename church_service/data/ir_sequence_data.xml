@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+         <!-- Sequences for Service -->
+        <record id="church_service.dtbs_seq_service_reg_type" model="ir.sequence.type">
+            <field name="name">Service</field>
+            <field name="code">dtbs.church.service.reg</field>
+        </record>
+ 
+        <record id="church_service.dtbs_seq_service_reg" model="ir.sequence">
+            <field name="name">Service Registration Number</field>
+            <field name="code">dtbs.church.service.reg</field>
+            <field name="prefix">REG/SERV/%(year)s%(month)s/</field>
+            <field name="padding">6</field>
+            <field name="number_next_actual">1</field>            
+            <field name="number_increment">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+    </data>
+</openerp>
+
+

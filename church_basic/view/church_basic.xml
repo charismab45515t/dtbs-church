@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <template inherit_id="web.assets_backend" name="church_basic assets" id="assets_backend">
+      <xpath position="inside" expr=".">
+        <link href="/church_basic/static/src/css/church_basic.css" rel="stylesheet"/>
+      </xpath>
+    </template>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

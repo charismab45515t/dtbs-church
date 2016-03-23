@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Service Line -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.view_church_service_line_search" model="ir.ui.view">
+      <field name="name">church.service.line.search</field>
+      <field name="model">dtbs.church.service.line</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <search string="church.service.line.search">
+          <field name="member_id"/>
+          <field name="type_service_id"/>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.view_church_service_line_tree" model="ir.ui.view">
+      <field name="name">church.service.line.tree</field>
+      <field name="model">dtbs.church.service.line</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom" string="church.service.line.tree">
+          <field name="member_id"/>
+          <field name="type_service_id" readonly="1"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- #################################################################################################### -->
+    <!-- Service -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.view_church_service_reg_search" model="ir.ui.view">
+      <field name="name">church.service.reg.search</field>
+      <field name="model">dtbs.church.service.reg</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <search string="church.service.reg.search">
+          <field name="name"/>
+          <field name="effective_date"/>
+          <field name="type_service_id"/>
+          <field name="state"/>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.view_church_service_reg_tree" model="ir.ui.view">
+      <field name="name">church.service.reg.tree</field>
+      <field name="model">dtbs.church.service.reg</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <tree string="church.service.reg.tree">
+          <field name="name"/>
+          <field name="effective_date"/>
+          <field name="type_service_id"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.view_church_service_reg_form" model="ir.ui.view">
+      <field name="name">church.service.reg.form</field>
+      <field name="model">dtbs.church.service.reg</field>
+      <field name="priority">16</field>
+      <field name="arch" type="xml">
+        <form string="church.service.reg.form">
+          <header>
+            <button name="to_confirm" states="draft" type="object" class="oe_highlight" string="Confirm"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="name"/>
+              <h1>
+                <field name="name" readonly="1"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="id" invisible="1"/>
+                <field name="type_service_id" attrs="{'readonly':[('id','!=',False)]}"/>
+              </group>
+              <group>
+                <field name="effective_date"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Members">
+                <field name="service_ids"/>
+              </page>
+              <page string="Extra Information">
+                <separator string="Extra Info"/>
+                <group>
+                  <group>
+                    <field name="create_uid" readonly="1"/>
+                    <field name="write_uid" readonly="1"/>
+                    <field name="confirm_uid" readonly="1" attrs="{'invisible': [('confirm_uid', '=', False)]}"/>
+                  </group>
+                  <group>
+                    <field name="create_date" readonly="1"/>
+                    <field name="write_date" readonly="1"/>
+                    <field name="dt_confirm" readonly="1" attrs="{'invisible': [('confirm_uid', '=', False)]}"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACT WINDOW -->
+    <!-- #################################################################################################### -->
+    <record id="church_service.act_church_service_reg" model="ir.actions.act_window">
+      <field name="name">Service Registration</field>
+      <field name="res_model">dtbs.church.service.reg</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">current</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click here to add service registration.</p>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

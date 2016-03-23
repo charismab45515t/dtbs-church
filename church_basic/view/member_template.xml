@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Members Template -->
+    <!-- #################################################################################################### -->
+    <!-- KANBAN VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_template_kanban" model="ir.ui.view">
+      <field name="name">church.basic.member.template.kanban</field>
+      <field name="model">dtbs.church.member.template</field>
+      <field name="arch" type="xml">
+        <kanban string="church.basic.member.template.kanban">
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_church_basic_vignette">
+                <div class="oe_church_basic_image">
+                  <a type="open">
+                    <img class="oe_church_basic_picture" t-att-src="kanban_image('dtbs.church.member', 'image_medium', record.id.value)"/>
+                  </a>
+                </div>
+                <div class="oe_church_basic_details">
+                  <h4>
+                    <a type="open"><field name="name"/></a>
+                  </h4>
+                </div>
+              </div>
+              <script>$('.oe_church_basic_picture').load(function() { if($(this).width() &gt; $(this).height()) { $(this).addClass('oe_church_basic_picture_wide') } });</script>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_template_tree" model="ir.ui.view">
+      <field name="name">church.basic.member.template.tree</field>
+      <field name="model">dtbs.church.member.template</field>
+      <field name="arch" type="xml">
+        <tree string="church.basic.member.template.tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_member_template_form" model="ir.ui.view">
+      <field name="name">church.basic.member.template.form</field>
+      <field name="model">dtbs.church.member.template</field>
+      <field name="arch" type="xml">
+        <form string="church.basic.member.template.form">
+          <sheet>
+            <field widget="image" name="image_medium" class="oe_left oe_avatar"/>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="name"/>
+              <h1>
+                <field name="name"/>
+              </h1>
+              <label class="oe_edit_only" for="tags"/>
+              <field widget="many2many_tags" name="tags"/>
+            </div>
+            <notebook>
+              <page string="Public Information">
+                <field placeholder="Other Information ..." name="note"/>
+              </page>
+              <page string="Personal Information">
+                <group>
+                  <group>
+                    <separator colspan="2" string="Identity"/>
+                    <field name="identification_id"/>
+                    <separator colspan="2" string="Status"/>
+                    <field name="gender"/>
+                    <field name="marital"/>
+                  </group>
+                  <group>
+                    <separator colspan="2" string="Birth"/>
+                    <field name="birth_place"/>
+                    <field name="date_of_birth"/>
+                    <separator colspan="2" string="Extra Info"/>
+                    <field name="religion_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                    <field name="blood_type"/>
+                    <field name="hobby"/>
+                  </group>
+                </group>
+                <separator string="Family"/>
+                <field name="family_ids"/>
+              </page>
+              <page string="Contact">
+                <group>
+                  <field widget="email" name="email"/>
+                </group>
+                <separator string="Contact"/>
+                <field name="contact_ids"/>
+                <separator string="Address"/>
+                <field name="address_ids"/>
+              </page>
+              <page string="History">
+                <separator string="Previous Education"/>
+                <field name="education_ids"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</openerp>

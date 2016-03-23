@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Member Tags -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_tag_search" model="ir.ui.view">
+      <field name="name">church.basic.tag.search</field>
+      <field name="model">dtbs.church.tag</field>
+      <field name="arch" type="xml">
+        <search string="church.basic.tag.search">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_tag_tree" model="ir.ui.view">
+      <field name="name">church.basic.tag.tree</field>
+      <field name="model">dtbs.church.tag</field>
+      <field name="arch" type="xml">
+        <tree string="church.basic.tag.tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_tag_form" model="ir.ui.view">
+      <field name="name">church.basic.tag.form</field>
+      <field name="model">dtbs.church.tag</field>
+      <field name="arch" type="xml">
+        <form string="church.basic.tag.form">
+          <sheet>
+            <group>
+              <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACT WINDOW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.act_church_basic_tag" model="ir.actions.act_window">
+      <field name="name">Member Tags</field>
+      <field name="res_model">dtbs.church.tag</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">current</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click here to create member tag.</p>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

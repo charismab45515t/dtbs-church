@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Type of Service -->
+    <!-- #################################################################################################### -->
+    <!-- SEARCH VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_type_service_search" model="ir.ui.view">
+      <field name="name">church.basic.type.service.search</field>
+      <field name="model">dtbs.church.type.service</field>
+      <field name="arch" type="xml">
+        <search string="church.basic.type.service.search">
+          <field name="name"/>
+          <field name="parent_id"/>
+        </search>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- TREE VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_type_service_tree" model="ir.ui.view">
+      <field name="name">church.basic.type.service.tree</field>
+      <field name="model">dtbs.church.type.service</field>
+      <field name="arch" type="xml">
+        <tree string="church.basic.type.service.tree">
+          <field name="complete_name"/>
+        </tree>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.view_church_basic_type_service_form" model="ir.ui.view">
+      <field name="name">church.basic.type.service.form</field>
+      <field name="model">dtbs.church.type.service</field>
+      <field name="arch" type="xml">
+        <form string="church.basic.type.service.form">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACTION -->
+    <!-- #################################################################################################### -->
+    <record id="church_basic.act_church_basic_type_service" model="ir.actions.act_window">
+      <field name="name">Type of Service</field>
+      <field name="res_model">dtbs.church.type.service</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">current</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p>This is a list of type service.</p>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>
